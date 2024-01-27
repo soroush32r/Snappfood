@@ -16,7 +16,7 @@ import icecream from "../../public/images/Header/icecream.png";
 import meat from "../../public/images/Header/meat.png";
 import nuts from "../../public/images/Header/nuts.png";
 import other from "../../public/images/Header/other.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const imageArray = [
   { name: "رستوران", path: restaurant },
@@ -33,25 +33,40 @@ const imageArray = [
 
 const Header = () => {
   const [str, setStr] = useState("");
-  const [blurScreen, setBlurScreen] = useState(false);
+  const [isPhone, setIsPhone] = useState(false);
+  const [location, setLocation] = useState(
+    "تهران خیابان ولیعصر کوچه تاج روبه‌رو تربیت بدنی نمیکسشتبمنکسیبت شمکسیبت مکشسیتبمک ش"
+  );
+  useEffect(() => {
+    const handleResize = () => {
+      setIsPhone(window.innerWidth < 600);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    let truncatedText = "";
+    if (isPhone) {
+      truncatedText =
+        location.length > 20 ? location.slice(0, 20) + "..." : location;
+    } else {
+      truncatedText =
+        location.length > 40 ? location.slice(0, 40) + "..." : location;
+    }
+    setLocation(truncatedText);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [location]);
   return (
     <div className="flex flex-col shadow-md w-screen">
       <div className="flex justify-between items-center p-4">
-        <div className="flex items-center w-1/3 ">
-          <div className="ml-10">
-            <Image
-              src={snappIcon}
-              className="hidden md:block w-16 h-10"
-              alt="snappIcon"
-            />
+        <div className="flex items-center w-2/3 md:w-1/3">
+          <div className="hidden md:block ml-10">
+            <Image src={snappIcon} className="w-16 h-10" alt="snappIcon" />
           </div>
           <div className="flex items-center">
             <Image src={locationIcon} className="opacity-50" alt="location" />
             <div className="text-[0.75rem] text-gray-400 mr-3 flex items-center">
-              <span className="w-72">
-                تهران ولیعصر خیابان تاج کوچه سروش روبه‌رو تربیت بدنی
-                شسیشسیمشنسیت شمنستیمنشستی منشستیمنش ستیمن شتسیمن شست
-              </span>
+              <span className="text-[0.625rem]">{location}</span>
               <Image
                 src={arrowIcon}
                 alt="arrow icon"
@@ -59,13 +74,6 @@ const Header = () => {
               />
             </div>
           </div>
-        </div>
-        <div className="md:hidden">
-          <Image
-            src={searchIcon}
-            alt="search icon"
-            className="mx-1 opacity-50"
-          />
         </div>
         <div className="hidden md:flex md:rounded-xl md:bg-gray-200 md:p-4 md:w-96">
           <Image
@@ -80,24 +88,25 @@ const Header = () => {
             onChange={(e) => {
               setStr(e.target.value);
             }}
-            onClick={() => {
-              setBlurScreen(true);
-              if (str === "") {
-                setBlurScreen(false);
-              }
-            }}
           />
         </div>
 
-        <div className="flex justify-end items-center w-1/3">
-          <div className="ml-3 p-4">
+        <div className="flex md:justify-end justify-between items-center w-2/3 md:w-1/3">
+          <div className="md:hidden">
+            <Image
+              src={searchIcon}
+              alt="search icon"
+              className="mx-1 opacity-50"
+            />
+          </div>
+          <div className="md:ml-3 p-4">
             <Image src={userIcon} alt="user icon" />
           </div>
-          <div className="flex items-center pl-2 pr-4">
-            <div className="mr-3">
+          <div className="flex items-center pl-2 md:pr-4">
+            <div className="md:mr-3">
               <Image src={orderIcon} alt="order icon" />
             </div>
-            <div className="mr-2">سفارش‌ها</div>
+            <div className="hidden md:block mr-2">سفارش‌ها</div>
           </div>
         </div>
       </div>
