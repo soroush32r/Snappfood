@@ -57,7 +57,7 @@ const Header = () => {
     };
   }, [location]);
   return (
-    <div className="flex flex-col shadow-md w-screen">
+    <div className="flex flex-col shadow-md w-full">
       <div className="flex justify-between items-center p-4">
         <div className="flex items-center w-2/3 md:w-1/3">
           <div className="hidden md:block ml-10">
