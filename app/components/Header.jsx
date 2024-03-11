@@ -17,18 +17,19 @@ import meat from "../../public/images/Header/meat.png";
 import nuts from "../../public/images/Header/nuts.png";
 import other from "../../public/images/Header/other.png";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const imageArray = [
-  { name: "رستوران", path: restaurant },
-  { name: "سوپرمارکت", path: supermarket },
-  { name: "کافه", path: coffee },
-  { name: "شیرینی", path: cake },
-  { name: "نانوایی", path: bakery },
-  { name: "میوه", path: fruit },
-  { name: "پروتئین", path: meat },
-  { name: "آبمیوه بستنی", path: icecream },
-  { name: "آجیل", path: nuts },
-  { name: "سایر", path: other },
+  { name: "رستوران", path: restaurant, url: "vendors" },
+  { name: "سوپرمارکت", path: supermarket, url: "https://snapp.express/" },
+  { name: "کافه", path: coffee, url: "cafe" },
+  { name: "شیرینی", path: cake, url: "cake" },
+  { name: "نانوایی", path: bakery, url: "bakery" },
+  { name: "میوه", path: fruit, url: "fruit" },
+  { name: "پروتئین", path: meat, url: "protein" },
+  { name: "آبمیوه بستنی", path: icecream, url: "juice" },
+  { name: "آجیل", path: nuts, url: "nuts" },
+  { name: "سایر", path: other, url: "other" },
 ];
 
 const Header = () => {
@@ -111,11 +112,13 @@ const Header = () => {
         </div>
       </div>
       <div className="flex justify-between p-4 overflow-y-scroll md:overflow-hidden">
-        {imageArray.map(({ name, path }) => (
-          <div key={name} className="flex flex-col items-center p-4">
-            <Image src={path} alt={name} className="mb-4 w-10 h-10" />
-            <p className="text-sm">{name}</p>
-          </div>
+        {imageArray.map(({ name, path, url }) => (
+          <Link href={url}>
+            <div key={name} className="flex flex-col items-center p-4">
+              <Image src={path} alt={name} className="mb-4 w-10 h-10" />
+              <p className="text-sm">{name}</p>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

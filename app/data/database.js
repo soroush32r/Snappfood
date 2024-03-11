@@ -9,11 +9,11 @@ import PashaBackground from "../../public/images/Restaurants/Pasha-background.jp
 import ShilaLogo from "../../public/images/Restaurants/Shila-logo.jpg";
 import ShilaBackground from "../../public/images/Restaurants/Shila-background.jpg";
 
-import JojeKetring from "../../public/images/Foods/Ketring_Joje.jpg";
-import KobidehKetring from "../../public/images/Foods/Ketring_Kobideh.jpg";
-import ZereshtKetring from "../../public/images/Foods/Ketring_Zereshk.jpg";
-import TorshKetring from "../../public/images/Foods/Ketring_Torsh.jpg";
-import MexicanKetring from "../../public/images/Foods/Ketring_Mexican.jpg";
+import JojeKetring from "../../public/images/Foods/Ketring_Joje.jpeg";
+import KobidehKetring from "../../public/images/Foods/Ketring_Kobideh.jpeg";
+import ZereshtKetring from "../../public/images/Foods/Ketring_Zereshk.jpeg";
+import TorshKetring from "../../public/images/Foods/Ketring_Torsh.jpeg";
+import MexicanKetring from "../../public/images/Foods/Ketring_Mexican.jpeg";
 import PalestineDigi from "../../public/images/Foods/Palestine_Digi.jpg";
 import PalestineDigi1 from "../../public/images/Foods/Palestine_Digi_1.jpg";
 import PalestinePackage from "../../public/images/Foods/Palestine_Package.jpg";
