@@ -20,16 +20,16 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const imageArray = [
-  { name: "رستوران", path: restaurant, url: "vendors" },
+  { name: "رستوران", path: restaurant, url: "/vendors/restaurant" },
   { name: "سوپرمارکت", path: supermarket, url: "https://snapp.express/" },
-  { name: "کافه", path: coffee, url: "cafe" },
-  { name: "شیرینی", path: cake, url: "cake" },
-  { name: "نانوایی", path: bakery, url: "bakery" },
-  { name: "میوه", path: fruit, url: "fruit" },
-  { name: "پروتئین", path: meat, url: "protein" },
-  { name: "آبمیوه بستنی", path: icecream, url: "juice" },
-  { name: "آجیل", path: nuts, url: "nuts" },
-  { name: "سایر", path: other, url: "other" },
+  { name: "کافه", path: coffee, url: "/vendors/cafe" },
+  { name: "شیرینی", path: cake, url: "/vendors/cake" },
+  { name: "نانوایی", path: bakery, url: "/vendors/bakery" },
+  { name: "میوه", path: fruit, url: "/vendors/fruit" },
+  { name: "پروتئین", path: meat, url: "/vendors/protein" },
+  { name: "آبمیوه بستنی", path: icecream, url: "/vendors/juice" },
+  { name: "آجیل", path: nuts, url: "/vendors/nuts" },
+  { name: "سایر", path: other, url: "/vendors/other" },
 ];
 
 const Header = () => {

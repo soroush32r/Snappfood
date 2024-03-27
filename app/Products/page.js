@@ -1,0 +1,90 @@
+"use client";
+import { useSelector } from "react-redux";
+import { filterById } from "../utils/filterById";
+import Image from "next/image";
+import rateIcon from "../../public/icons/rate.svg";
+import warningIcon from "../../public/icons/warning.png";
+import cartIcon from "../../public/icons/cart.png";
+import Products from "../components/Products";
+import Link from "next/link";
+const Page = () => {
+  const { id, name, rate, category, logo } = useSelector(
+    (store) => store.currentRestaurant
+  );
+  const RESTAURANT_PRODUCT = filterById(id);
+  return (
+    <div className="bg-gray-100 pt-20">
+      <div className="mx-auto my-0 w-11/12 ">
+        <div className="flex justify-between flex-col md:flex-row w-auto">
+          <div className="flex justify-around flex-col sm:flex-row w-full">
+            <div className="p-4 w-full sm:w-1/4">
+              <div className="flex">
+                <div className="w-20 h-20 bg-white p-1 rounded-md">
+                  <Image
+                    alt={name}
+                    src={logo.src}
+                    width={80}
+                    height={80}
+                    className="w-full h-full rounded-md"
+                  />
+                </div>
+                <div className="flex flex-col justify-around pr-2">
+                  <div className="flex items-center">
+                    <div className="pl-2">
+                      <Image
+                        alt="rateIcon"
+                        src={rateIcon}
+                        width={10}
+                        height={10}
+                      />
+                    </div>
+                    <div className="text-sm">{rate}</div>
+                  </div>
+                  <div>
+                    <h1 className="font-bold">{name}</h1>
+                  </div>
+                </div>
+              </div>
+              <div className="flex">
+                <button
+                  dir="rtl"
+                  className="rounded-3xl bg-white text-green-400 w-full p-2 border border-gray-100 shadow-md mt-7 flex justify-center items-center hover:text-green-600 text-sm"
+                >
+                  <div className="flex w-4 items-center ml-2">
+                    <Image
+                      alt="warningIcon"
+                      src={warningIcon}
+                      className="w-full"
+                    />
+                  </div>
+                  اطلاعات و نظرات
+                </button>
+              </div>
+              <div className="flex flex-col mt-5 sm:text-left">
+                {category.map((item) => (
+                  <Link className="py-2" href={`#${item}`} scroll={true}>
+                    {item}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="p-4 w-full sm:w-8/12">
+              <Products
+                category={category}
+                RESTAURANT_PRODUCT={RESTAURANT_PRODUCT}
+              />
+            </div>
+          </div>
+          <div className="p-4 flex flex-col items-center mt-10 w-full md:w-1/5">
+            <div className="w-4 h-5 m-5">
+              <Image src={cartIcon} className="opacity-60 w-full h-full" />
+            </div>
+            <div className="text-sm opacity-60">سبد خرید شما خالی است!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Page;

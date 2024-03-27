@@ -24,6 +24,19 @@ import PalestineKotlet from "../../public/images/Foods/Palestine_Kotlet.jpg";
 import Palestine_Kotlet1 from "../../public/images/Foods/Palestine_Kotlet_1.jpg";
 import Palestine_Yatimche from "../../public/images/Foods/Palestine_Kotlet_1.jpg";
 
+import irani from "../../public/images/All_Food_Category/Irani.jpg";
+import fastfood from "../../public/images/All_Food_Category/fastfood.jpg";
+import kebab from "../../public/images/All_Food_Category/kebab.jpg";
+import pizza from "../../public/images/All_Food_Category/pizza.jpg";
+import burger from "../../public/images/All_Food_Category/burger.jpg";
+import sandwich from "../../public/images/All_Food_Category/sandwich.jpg";
+import sokhari from "../../public/images/All_Food_Category/sokhari.jpg";
+import pasta from "../../public/images/All_Food_Category/pasta.jpg";
+import salad from "../../public/images/All_Food_Category/salad.jpg";
+import seafood from "../../public/images/All_Food_Category/seafood.jpg";
+import international from "../../public/images/All_Food_Category/international.jpg";
+import gilani from "../../public/images/All_Food_Category/gilani.jpg";
+
 export const IRANI = "ایرانی";
 export const FASTFOOD = "فست فود";
 export const KEBAB = "کباب";
@@ -52,6 +65,21 @@ export const CATEGORIES = [
   GILANI,
 ];
 
+export const ALL_CATEGORY_ADDRESS = [
+  { img: irani, name: IRANI },
+  { img: fastfood, name: FASTFOOD },
+  { img: kebab, name: KEBAB },
+  { img: pizza, name: PIZZA },
+  { img: burger, name: BURGER },
+  { img: sandwich, name: SANDWICH },
+  { img: sokhari, name: SOKHARI },
+  { img: pasta, name: PASTA },
+  { img: salad, name: SALAD },
+  { img: seafood, name: SEAFOOD },
+  { img: international, name: INTERNATIONAL },
+  { img: gilani, name: GILANI },
+];
+
 export const PRODUCTS = [
   {
     id: 1,
@@ -63,7 +91,7 @@ export const PRODUCTS = [
     other_img: "",
     rate: "4.2",
     restaurant_id: 1,
-    category: [IRANI, KEBAB],
+    category: KEBAB,
   },
   {
     id: 2,
@@ -75,7 +103,7 @@ export const PRODUCTS = [
     other_img: "",
     rate: "4.2",
     restaurant_id: 1,
-    category: [IRANI, KEBAB],
+    category: KEBAB,
   },
   {
     id: 3,
@@ -87,7 +115,7 @@ export const PRODUCTS = [
     other_img: "",
     rate: "4.4",
     restaurant_id: 1,
-    category: [IRANI, KEBAB],
+    category: KEBAB,
   },
   {
     id: 4,
@@ -98,7 +126,7 @@ export const PRODUCTS = [
     other_img: "",
     rate: "4.2",
     restaurant_id: 1,
-    category: [IRANI],
+    category: IRANI,
   },
   {
     id: 5,
@@ -110,7 +138,7 @@ export const PRODUCTS = [
     other_img: "",
     rate: "4.2",
     restaurant_id: 1,
-    category: [IRANI, KEBAB, GILANI],
+    category: GILANI,
   },
   {
     id: 6,
@@ -122,7 +150,7 @@ export const PRODUCTS = [
     other_img: "",
     rate: "3.9",
     restaurant_id: 1,
-    category: [IRANI, KEBAB, INTERNATIONAL],
+    category: INTERNATIONAL,
   },
   {
     id: 7,
@@ -134,7 +162,7 @@ export const PRODUCTS = [
     other_img: [PalestineDigi, PalestineDigi1, PalestinePackage],
     rate: "4.2",
     restaurant_id: 2,
-    category: [IRANI, KEBAB],
+    category: KEBAB,
   },
   {
     id: 8,
@@ -146,7 +174,7 @@ export const PRODUCTS = [
     other_img: [PalestineMasalaMorgh, PalestineMasalaMorgh1, PalestinePackage],
     rate: "4.2",
     restaurant_id: 2,
-    category: [IRANI],
+    category: IRANI,
   },
   {
     id: 9,
@@ -157,7 +185,7 @@ export const PRODUCTS = [
     other_img: [],
     rate: "4.2",
     restaurant_id: 2,
-    category: [SALAD],
+    category: SALAD,
   },
   {
     id: 10,
@@ -169,7 +197,7 @@ export const PRODUCTS = [
     other_img: [PalestineKotlet, Palestine_Kotlet1, PalestinePackage],
     rate: "4.2",
     restaurant_id: 2,
-    category: [IRANI],
+    category: IRANI,
   },
   {
     id: 11,
@@ -181,7 +209,7 @@ export const PRODUCTS = [
     other_img: [PalestineKotlet, Palestine_Kotlet1, PalestinePackage],
     rate: "4.2",
     restaurant_id: 2,
-    category: [IRANI],
+    category: IRANI,
   },
   {
     id: 12,
@@ -193,7 +221,7 @@ export const PRODUCTS = [
     other_img: [Palestine_Yatimche, PalestinePackage],
     rate: "4.1",
     restaurant_id: 2,
-    category: [IRANI],
+    category: IRANI,
   },
 ];
 
@@ -201,7 +229,7 @@ export const RESTAURANTS = [
   {
     id: 1,
     name: "کترینگ سینتو پلو",
-    category: [IRANI, KEBAB],
+    category: [IRANI, KEBAB, GILANI, INTERNATIONAL],
     logo: KetringLogo,
     background: KetringBackground,
     rate: "4.3",
@@ -209,7 +237,7 @@ export const RESTAURANTS = [
   {
     id: 2,
     name: "چلوپز (فلسطین)",
-    category: [IRANI, KEBAB],
+    category: [IRANI, KEBAB, SALAD],
     logo: PalestineLogo,
     background: PalestineBackground,
     rate: "4.3",
@@ -242,6 +270,6 @@ export const RESTAURANTS = [
 
 export const DATABASE = {
   categories: CATEGORIES,
-  // products: PRODUCTS,
+  products: PRODUCTS,
   restaurants: RESTAURANTS,
 };
