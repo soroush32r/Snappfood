@@ -10,6 +10,9 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-iranSans)"],
       },
+      colors: {
+        myPink: "#FF00A6",
+      },
     },
   },
   plugins: [],

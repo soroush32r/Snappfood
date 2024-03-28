@@ -4,9 +4,9 @@ import { filterById } from "../utils/filterById";
 import Image from "next/image";
 import rateIcon from "../../public/icons/rate.svg";
 import warningIcon from "../../public/icons/warning.png";
-import cartIcon from "../../public/icons/cart.png";
 import Products from "../components/Products";
 import Link from "next/link";
+import CartList from "../components/CartList";
 const Page = () => {
   const { id, name, rate, category, logo } = useSelector(
     (store) => store.currentRestaurant
@@ -14,10 +14,10 @@ const Page = () => {
   const RESTAURANT_PRODUCT = filterById(id);
   return (
     <div className="bg-gray-100 pt-20">
-      <div className="mx-auto my-0 w-11/12 ">
-        <div className="flex justify-between flex-col md:flex-row w-auto">
-          <div className="flex justify-around flex-col sm:flex-row w-full">
-            <div className="p-4 w-full sm:w-1/4">
+      <div className="mx-auto my-0 ">
+        <div className="flex flex-col md:flex-row w-auto">
+          <div className="flex flex-col justify-between md:flex-row w-full">
+            <div className="p-4 w-full md:w-1/3">
               <div className="flex">
                 <div className="w-20 h-20 bg-white p-1 rounded-md">
                   <Image
@@ -60,7 +60,7 @@ const Page = () => {
                   اطلاعات و نظرات
                 </button>
               </div>
-              <div className="flex flex-col mt-5 sm:text-left">
+              <div className="flex flex-col mt-5 md:text-left">
                 {category.map((item) => (
                   <Link className="py-2" href={`#${item}`} scroll={true}>
                     {item}
@@ -68,18 +68,15 @@ const Page = () => {
                 ))}
               </div>
             </div>
-            <div className="p-4 w-full sm:w-8/12">
+            <div className="p-4 w-full md:w-8/12">
               <Products
                 category={category}
                 RESTAURANT_PRODUCT={RESTAURANT_PRODUCT}
               />
             </div>
           </div>
-          <div className="p-4 flex flex-col items-center mt-10 w-full md:w-1/5">
-            <div className="w-4 h-5 m-5">
-              <Image src={cartIcon} className="opacity-60 w-full h-full" />
-            </div>
-            <div className="text-sm opacity-60">سبد خرید شما خالی است!</div>
+          <div className="p-4 flex flex-col items-center w-full md:w-1/3">
+            <CartList />
           </div>
         </div>
       </div>

@@ -16,6 +16,12 @@ const iranSans = localFont({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+      </head>
       <body className={`${iranSans.className}`} dir="rtl">
         <Provider store={store}>
           <Header />
