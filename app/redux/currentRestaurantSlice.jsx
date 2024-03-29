@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { store } from "./store";
 
 const currentRestaurantSlice = createSlice({
   name: "currentRestaurant",
   initialState: {
     userId: 1,
-    id: 0,
+    id: "",
     name: "",
     background: "",
     rate: "",

@@ -182,7 +182,7 @@ export const PRODUCTS = [
     description: "سالاد شیرازی ۱۰۰ گرمی",
     price: 12000,
     main_img: PalestineSalad,
-    other_img: [],
+    other_img: "",
     rate: "4.2",
     restaurant_id: 2,
     category: SALAD,

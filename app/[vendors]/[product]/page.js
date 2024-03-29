@@ -1,12 +1,13 @@
 "use client";
 import { useSelector } from "react-redux";
-import { filterProductByRestaurantId } from "../utils/filterProductByRestaurantId";
+import { filterProductByRestaurantId } from "../../utils/filterProductByRestaurantId";
 import Image from "next/image";
-import rateIcon from "../../public/icons/rate.svg";
-import warningIcon from "../../public/icons/warning.png";
-import Products from "../components/Products";
+import rateIcon from "../../../public/icons/rate.svg";
+import warningIcon from "../../../public/icons/warning.png";
+import Products from "../../components/Products";
 import Link from "next/link";
-import CartList from "../components/CartList";
+import CartList from "../../components/CartList";
+
 const Page = () => {
   const { id, name, rate, category, logo } = useSelector(
     (store) => store.currentRestaurant

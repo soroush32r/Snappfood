@@ -7,13 +7,6 @@ import { addToCart } from "../redux/cartSlice";
 import ProductButtons from "./ProductButtons";
 
 const ProductModal = ({ product }) => {
-  const { cart } = useSelector((store) => store.cart);
-  const dispatch = useDispatch();
-
-  const handleAddToCart = useCallback(() => {
-    dispatch(addToCart(product));
-  }, []);
-
   const [currentImg, setCurrentImg] = useState(product.main_img);
   const handleMainImg = (img) => {
     setCurrentImg(img);

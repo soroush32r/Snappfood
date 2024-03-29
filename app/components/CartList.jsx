@@ -23,7 +23,6 @@ const CartList = () => {
   const handleCheckout = useCallback(() => {
     const restaurant = findRestaurantById(cart[0].restaurant_id);
     const date = getCurrentDateTime();
-    console.log(date);
     dispatch(
       addToHistory({
         userId: 1,
