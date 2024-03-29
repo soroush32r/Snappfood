@@ -1,6 +1,6 @@
 "use client";
 import { useSelector } from "react-redux";
-import { filterById } from "../utils/filterById";
+import { filterProductByRestaurantId } from "../utils/filterProductByRestaurantId";
 import Image from "next/image";
 import rateIcon from "../../public/icons/rate.svg";
 import warningIcon from "../../public/icons/warning.png";
@@ -11,7 +11,7 @@ const Page = () => {
   const { id, name, rate, category, logo } = useSelector(
     (store) => store.currentRestaurant
   );
-  const RESTAURANT_PRODUCT = filterById(id);
+  const RESTAURANT_PRODUCT = filterProductByRestaurantId(id);
   return (
     <div className="bg-gray-100 pt-20">
       <div className="mx-auto my-0 ">

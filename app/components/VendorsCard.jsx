@@ -33,7 +33,7 @@ const VendorsCard = ({ id, name, background, rate, category, logo }) => {
           </div>
           <div className="flex justify-center text-sm text-gray-400 pt-2">
             {category.map((item, index) => (
-              <div className="flex">
+              <div className="flex" key={index}>
                 <p>{item}</p>
                 {index !== category.length - 1 ? <span>،</span> : ""}
               </div>

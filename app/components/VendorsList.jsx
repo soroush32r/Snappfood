@@ -14,7 +14,7 @@ const VendorsList = () => {
             <div>
               {ALL_CATEGORY_ADDRESS.map(({ img, name }) => (
                 <div className="flex py-2 items-center cursor-pointer hover:bg-gray-100">
-                  <Image src={img} className="w-8 h-8" />
+                  <Image src={img} className="w-8 h-8" alt={name} />
                   <p className="px-2 text-sm">{name}</p>
                 </div>
               ))}

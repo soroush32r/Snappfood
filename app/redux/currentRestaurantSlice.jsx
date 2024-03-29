@@ -16,7 +16,6 @@ const currentRestaurantSlice = createSlice({
     addRestaurant: (state, action) => {
       const { payload } = action;
       const { id, name, background, rate, category, logo } = payload;
-      console.log("sad", name);
       state.id = id;
       state.name = name;
       state.background = background;

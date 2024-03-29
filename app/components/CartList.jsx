@@ -8,6 +8,8 @@ import cartIcon from "../../public/icons/cart.png";
 import ProductButtons from "./ProductButtons";
 import { reset } from "../redux/cartSlice";
 import { addToHistory } from "../redux/historySlice";
+import { findRestaurantById } from "../utils/findRestaurantById";
+import getCurrentDateTime from "../utils/getCurrentDate";
 
 const CartList = () => {
   const { cart, totalProduct } = useSelector((store) => store.cart);
@@ -19,7 +21,18 @@ const CartList = () => {
   const totalPrice = useMemo(() => calculateShoppingPrice(cart), [cart]);
 
   const handleCheckout = useCallback(() => {
-    dispatch(addToHistory({ userId: 1, items: cart, totalPrice }));
+    const restaurant = findRestaurantById(cart[0].restaurant_id);
+    const date = getCurrentDateTime();
+    console.log(date);
+    dispatch(
+      addToHistory({
+        userId: 1,
+        items: cart,
+        restaurant: restaurant,
+        date,
+        totalPrice,
+      })
+    );
     dispatch(reset());
   }, [totalPrice, cart]);
 
@@ -27,7 +40,11 @@ const CartList = () => {
     return (
       <>
         <div className="w-4 h-5 m-5">
-          <Image src={cartIcon} className="opacity-60 w-full h-full" />
+          <Image
+            src={cartIcon}
+            className="opacity-60 w-full h-full"
+            alt="cart icon"
+          />
         </div>
         <div className="text-sm opacity-60">سبد خرید شما خالی است!</div>
       </>

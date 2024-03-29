@@ -11,15 +11,16 @@ const historySlice = createSlice({
   reducers: {
     addToHistory: (state, action) => {
       const { payload } = action;
-      const { items, totalPrice, userId } = payload;
+      const { items, restaurant, date, totalPrice, userId } = payload;
       const index = state.findIndex((user) => user.userId === userId);
       state[index].historyCart.push({
         id: Math.floor(Math.random() * 1000),
         items,
+        restaurant,
+        date,
         totalPrice,
         status: "در حال پردازش",
       });
-      console.log(items);
     },
   },
 });

@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import orderIcon from "../../public/icons/order.svg";
 import userIcon from "../../public/icons/user.svg";
 import snappIcon from "../../public/icons/snappLogo.svg";
 import locationIcon from "../../public/icons/location.svg";
@@ -18,6 +17,7 @@ import nuts from "../../public/images/Header/nuts.png";
 import other from "../../public/images/Header/other.png";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import SideBar from "./SideBar";
 
 const imageArray = [
   { name: "رستوران", path: restaurant, url: "/vendors/restaurant" },
@@ -36,7 +36,7 @@ const Header = () => {
   const [str, setStr] = useState("");
   const [isPhone, setIsPhone] = useState(false);
   const [location, setLocation] = useState(
-    "تهران خیابان ولیعصر کوچه تاج روبه‌رو تربیت بدنی نمیکسشتبمنکسیبت شمکسیبت مکشسیتبمک ش"
+    "تهران خیابان ولیعصر کوچه تاج روبه‌رو تربیت بدنی "
   );
   useEffect(() => {
     const handleResize = () => {
@@ -103,17 +103,12 @@ const Header = () => {
           <div className="md:ml-3 p-4">
             <Image src={userIcon} alt="user icon" />
           </div>
-          <div className="flex items-center pl-2 md:pr-4">
-            <div className="md:mr-3">
-              <Image src={orderIcon} alt="order icon" />
-            </div>
-            <div className="hidden md:block mr-2">سفارش‌ها</div>
-          </div>
+          <SideBar />
         </div>
       </div>
       <div className="flex justify-between p-4 overflow-y-scroll md:overflow-hidden">
         {imageArray.map(({ name, path, url }) => (
-          <Link href={url}>
+          <Link href={url} key={name}>
             <div key={name} className="flex flex-col items-center p-4">
               <Image src={path} alt={name} className="mb-4 w-10 h-10" />
               <p className="text-sm">{name}</p>

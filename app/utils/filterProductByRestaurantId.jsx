@@ -1,5 +1,5 @@
 import { PRODUCTS } from "@/app/data/database";
 
-export const filterById = (id) => {
+export const filterProductByRestaurantId = (id) => {
   return PRODUCTS.filter((product) => product.restaurant_id == id);
 };
