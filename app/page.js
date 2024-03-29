@@ -1,3 +1,5 @@
+import VendorsList from "./components/VendorsList";
+
 export default function Home() {
-  return <div></div>;
+  return <VendorsList />;
 }

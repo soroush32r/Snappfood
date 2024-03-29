@@ -1,5 +1,7 @@
-import Image from "next/image";
+import Popup from "reactjs-popup";
 import ProductButtons from "./ProductButtons";
+import ProductModal from "./ProductModal";
+import Image from "next/image";
 
 const Products = ({ category, RESTAURANT_PRODUCT }) => {
   return (
@@ -14,25 +16,33 @@ const Products = ({ category, RESTAURANT_PRODUCT }) => {
                   key={product.id}
                   className="py-4 border border-collapse px-2"
                 >
-                  <div className="flex justify-between">
-                    <div className="w-2/3 md:w-40 text-justify pl-2">
-                      <h1 className="font-bold text-sm py-2">
-                        {product.title}
-                      </h1>
-                      <div className="h-20 sm:overflow-clip">
-                        <p className="text-xs text-gray-400">
-                          {product.description}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="w-28">
-                      <Image
-                        alt={product.name}
-                        src={product.main_img}
-                        className="w-full rounded-md"
-                      />
-                    </div>
-                  </div>
+                  <Popup
+                    className="flex justify-between"
+                    trigger={
+                      <button className=" flex justify-between w-full">
+                        <div className="w-2/3 md:w-40 text-justify pl-2">
+                          <h1 className="font-bold text-sm py-2">
+                            {product.title}
+                          </h1>
+                          <div className="h-20 sm:overflow-clip">
+                            <p className="text-xs text-gray-400">
+                              {product.description}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="w-28">
+                          <Image
+                            alt={product.title}
+                            src={product.main_img}
+                            className="w-full rounded-md"
+                          />
+                        </div>
+                      </button>
+                    }
+                    modal
+                  >
+                    <ProductModal product={product} />
+                  </Popup>
                   <div className="pt-10 flex justify-between items-center">
                     <div>{product.price} تومان</div>
                     <ProductButtons product={product} />
