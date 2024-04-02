@@ -56,11 +56,30 @@ const HistoryList = () => {
                   </div>
                 ))}
               </div>
-              <div className="flex justify-between mt-5 md:mt-0">
+              <div className="flex flex-col md:flex-row justify-between mt-5 md:mt-0">
                 <Popup
                   className="flex justify-between"
                   trigger={
-                    <button className="flex items-center justify-center mb-2 text-red-600 font-bold bg-gray-300 rounded-md  md:w-40 w-full">
+                    <button className="flex items-center justify-center mb-2 ml-2 py-2 md:py-0 font-bold bg-gray-300 rounded-md  md:w-40 w-full">
+                      <span class="material-symbols-outlined">info</span>
+                      مشاهده فاکتور
+                    </button>
+                  }
+                  modal
+                >
+                  <div className="md:mx-auto rounded-md shadow-black shadow-2xl bg-white md:w-[500px] p-8">
+                    <OrderHistoryModal
+                      items={items}
+                      restaurantName={name}
+                      totalPrice={totalPrice}
+                    />
+                  </div>
+                </Popup>
+
+                <Popup
+                  className="flex justify-between"
+                  trigger={
+                    <button className="flex items-center justify-center mb-2 py-2 text-red-600 font-bold bg-gray-300 rounded-md  md:w-40 w-full">
                       <span class="material-symbols-outlined">autorenew</span>
                       سفارش مجدد
                     </button>
