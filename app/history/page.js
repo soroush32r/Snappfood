@@ -2,7 +2,7 @@ import HistoryList from "../components/HistoryList";
 
 const Page = () => {
   return (
-    <div className="bg-gray-200 py-10 h-screen">
+    <div className="bg-gray-200 py-10">
       <HistoryList />
     </div>
   );

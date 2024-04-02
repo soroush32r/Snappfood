@@ -6,6 +6,9 @@ import noOrderIcon from "../../public/icons/noOrder.png";
 import orderIcon from "../../public/icons/order.svg";
 import sortOrderByDate from "../utils/sortOrderByDate";
 import Link from "next/link";
+import Popup from "reactjs-popup";
+import ReorderModal from "./ReorderModal";
+import OrderHistoryModal from "./OrderHistoryModal";
 
 export default function SideBar() {
   const [data] = useSelector((store) => store.history);
@@ -40,7 +43,7 @@ export default function SideBar() {
         <div className="flex flex-col w-full p-4 text-sm">
           سفارش‌های پیشین
           <div className="border rounded-xl mt-4">
-            {sortedOrder.map(({ restaurant, date }, index) =>
+            {sortedOrder.map(({ items, totalPrice, restaurant, date }, index) =>
               index <= 2
                 ? restaurant.map(({ name, logo }) => (
                     <div className="flex p-4 border-b flex-col">
@@ -66,18 +69,48 @@ export default function SideBar() {
                         </button>
                       </div>
                       <div className="flex mt-5 md:flex-row flex-col justify-between">
-                        <button className="flex items-center justify-center mb-2 md:mb-0 font-bold bg-gray-300 rounded-md py-1 px-4 md:w-48 w-full">
-                          <span class="material-symbols-outlined ml-1">
-                            info
-                          </span>
-                          مشاهده فاکتور
-                        </button>
-                        <button className="flex items-center font-bold justify-center bg-gray-300 rounded-md py-1 px-4 md:w-48 w-full">
-                          <span class="material-symbols-outlined">
-                            autorenew
-                          </span>
-                          سفارش مجدد
-                        </button>
+                        <Popup
+                          className="flex justify-between"
+                          trigger={
+                            <button className="flex items-center justify-center mb-2 md:mb-0 font-bold bg-gray-300 rounded-md py-1 px-4 md:w-48 w-full">
+                              <span class="material-symbols-outlined ml-1">
+                                info
+                              </span>
+                              مشاهده فاکتور
+                            </button>
+                          }
+                          modal
+                        >
+                          <div className="md:mx-auto rounded-md shadow-black shadow-2xl bg-white md:w-[500px] p-8">
+                            <OrderHistoryModal
+                              items={items}
+                              restaurantName={name}
+                              totalPrice={totalPrice}
+                            />
+                          </div>
+                        </Popup>
+
+                        <Popup
+                          className="flex justify-between"
+                          trigger={
+                            <button className="flex items-center font-bold justify-center bg-gray-300 rounded-md py-1 px-4 md:w-48 w-full">
+                              <span class="material-symbols-outlined">
+                                autorenew
+                              </span>
+                              سفارش مجدد
+                            </button>
+                          }
+                          modal
+                        >
+                          {(close) => (
+                            <ReorderModal
+                              items={items}
+                              restaurant={restaurant}
+                              totalPrice={totalPrice}
+                              close={close}
+                            />
+                          )}
+                        </Popup>
                       </div>
                     </div>
                   ))
@@ -124,6 +157,7 @@ export default function SideBar() {
             boxSizing: "border-box",
           },
         }}
+        className="z-0"
       >
         {DrawerList}
       </Drawer>

@@ -1,8 +1,11 @@
 "use client";
 import { useSelector } from "react-redux";
 import sortOrderByDate from "../utils/sortOrderByDate";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
+import OrderHistoryModal from "./OrderHistoryModal";
+import Popup from "reactjs-popup";
+import ReorderModal from "./ReorderModal";
 
 const HistoryList = () => {
   const [data] = useSelector((store) => store.history);
@@ -15,7 +18,7 @@ const HistoryList = () => {
 
   if (historyCart.length === 0) {
     return (
-      <div className="flex justify-center items-center mt-56 font-bold text-lg text-gray-400">
+      <div className="flex justify-center items-center my-52 font-bold text-lg text-gray-400">
         تا به حال هیچ سفارشی ثبت نکرده‌اید!
       </div>
     );
@@ -54,14 +57,25 @@ const HistoryList = () => {
                 ))}
               </div>
               <div className="flex justify-between mt-5 md:mt-0">
-                <button className="flex items-center justify-center mb-2 ml-2 py-2 md:py-0 font-bold bg-gray-300 rounded-md  md:w-40 w-full">
-                  <span class="material-symbols-outlined">info</span>
-                  مشاهده فاکتور
-                </button>
-                <button className="flex items-center justify-center mb-2 text-red-600 font-bold bg-gray-300 rounded-md  md:w-40 w-full">
-                  <span class="material-symbols-outlined">autorenew</span>
-                  سفارش مجدد
-                </button>
+                <Popup
+                  className="flex justify-between"
+                  trigger={
+                    <button className="flex items-center justify-center mb-2 text-red-600 font-bold bg-gray-300 rounded-md  md:w-40 w-full">
+                      <span class="material-symbols-outlined">autorenew</span>
+                      سفارش مجدد
+                    </button>
+                  }
+                  modal
+                >
+                  {(close) => (
+                    <ReorderModal
+                      items={items}
+                      restaurant={restaurant}
+                      totalPrice={totalPrice}
+                      close={close}
+                    />
+                  )}
+                </Popup>
               </div>
             </div>
           </div>

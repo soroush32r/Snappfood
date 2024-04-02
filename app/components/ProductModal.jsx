@@ -1,9 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import rateIcon from "../../public/icons/rate.svg";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../redux/cartSlice";
 import ProductButtons from "./ProductButtons";
 
 const ProductModal = ({ product }) => {
