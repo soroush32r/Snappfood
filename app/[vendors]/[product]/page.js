@@ -7,11 +7,14 @@ import warningIcon from "../../../public/icons/warning.png";
 import Products from "../../components/Products";
 import Link from "next/link";
 import CartList from "../../components/CartList";
+import { findRestaurantById } from "@/app/utils/findRestaurantById";
 
-const Page = () => {
-  const { id, name, rate, category, logo } = useSelector(
-    (store) => store.currentRestaurant
-  );
+const Page = ({ params }) => {
+  // const { id, name, rate, category, logo } = useSelector(
+  //   (store) => store.currentRestaurant
+  // );
+  const restaurant = findRestaurantById(params.product);
+  const { id, name, rate, category, logo } = restaurant[0];
   const RESTAURANT_PRODUCT = filterProductByRestaurantId(id);
   return (
     <div className="bg-gray-100 pt-20">
@@ -63,7 +66,12 @@ const Page = () => {
               </div>
               <div className="flex flex-col mt-5 md:text-left">
                 {category.map((item) => (
-                  <Link className="py-2" href={`#${item}`} scroll={true}>
+                  <Link
+                    key={item}
+                    className="py-2"
+                    href={`#${item}`}
+                    scroll={true}
+                  >
                     {item}
                   </Link>
                 ))}

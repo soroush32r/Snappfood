@@ -18,6 +18,8 @@ import other from "../../public/images/Header/other.png";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import SideBar from "./SideBar";
+import Search from "./Search";
+import Popup from "reactjs-popup";
 
 const imageArray = [
   { name: "رستوران", path: restaurant, url: "/restaurant" },
@@ -33,7 +35,7 @@ const imageArray = [
 ];
 
 const Header = () => {
-  const [str, setStr] = useState("");
+  const [searchIsClicked, setSearchIsClicked] = useState(false);
   const [isPhone, setIsPhone] = useState(false);
   const [location, setLocation] = useState(
     "تهران خیابان ولیعصر کوچه تاج روبه‌رو تربیت بدنی "
@@ -57,6 +59,11 @@ const Header = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [location]);
+
+  const handleSearchClicked = (value) => {
+    setSearchIsClicked(value);
+  };
+
   return (
     <div className="flex flex-col shadow-md w-full">
       <div className="flex justify-between items-center p-4">
@@ -76,30 +83,42 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className="hidden md:flex md:rounded-xl md:bg-gray-200 md:p-4 md:w-96">
-          <Image
-            src={searchIcon}
-            alt="search icon"
-            className={`mx-1 ${str !== "" ? "opacity-80" : "opacity-50"}`}
-          />
-          <input
-            className="hidden md:block bg-gray-200 outline-none w-full"
-            placeholder="جست‌وجو در اسنپ‌فود"
-            value={str}
-            onChange={(e) => {
-              setStr(e.target.value);
-            }}
-          />
-        </div>
 
+        <Search />
         <div className="flex md:justify-end justify-between items-center w-2/3 md:w-1/3">
-          <div className="md:hidden">
-            <Image
-              src={searchIcon}
-              alt="search icon"
-              className="mx-1 opacity-50"
-            />
-          </div>
+          <Popup
+            contentStyle={{
+              justifyContent: "center",
+              margin: "10px auto",
+              height: "72px",
+            }}
+            onOpen={() => handleSearchClicked(true)}
+            onClose={() => handleSearchClicked(false)}
+            trigger={
+              <button className="md:hidden">
+                <Image
+                  src={searchIcon}
+                  alt="search icon"
+                  className="mx-1 opacity-50"
+                />
+              </button>
+            }
+            modal
+            closeOnDocumentClick
+          >
+            <div
+              className={`${
+                searchIsClicked
+                  ? "flex justify-center rounded-md shadow-black shadow-2xl bg-white w-full p-2"
+                  : "hidden"
+              } `}
+            >
+              <Search
+                searchIsClicked={searchIsClicked}
+                handleSearchClicked={handleSearchClicked}
+              />
+            </div>
+          </Popup>
           <div className="md:ml-3 p-4">
             <Image src={userIcon} alt="user icon" />
           </div>
