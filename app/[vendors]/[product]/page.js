@@ -10,12 +10,17 @@ import CartList from "../../components/CartList";
 import { findRestaurantById } from "@/app/utils/findRestaurantById";
 
 const Page = ({ params }) => {
-  // const { id, name, rate, category, logo } = useSelector(
-  //   (store) => store.currentRestaurant
-  // );
+  if (params.vendors !== "restaurant") {
+    return (
+      <div className="flex justify-center my-60 items-center">
+        ارور ۴۰۴ همچین صفحه‌ای وجود ندارد
+      </div>
+    );
+  }
   const restaurant = findRestaurantById(params.product);
   const { id, name, rate, category, logo } = restaurant[0];
   const RESTAURANT_PRODUCT = filterProductByRestaurantId(id);
+
   return (
     <div className="bg-gray-100 pt-20">
       <div className="mx-auto my-0 ">

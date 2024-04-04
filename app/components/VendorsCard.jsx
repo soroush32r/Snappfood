@@ -12,7 +12,7 @@ const VendorsCard = ({ id, name, background, rate, category, logo }) => {
     dispatch(addRestaurant({ id, name, background, rate, category, logo }));
   }, []);
   return (
-    <Link onClick={handleCardID} href={`/${name}/${id}`}>
+    <Link onClick={handleCardID} href={`/restaurant/${id}`}>
       <div className="border border-gray-100 rounded-md shadow-md w-full flex flex-col relative hover:shadow-lg">
         <div className="flex ">
           <div className="h-48 w-full">
