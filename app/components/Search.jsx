@@ -1,13 +1,13 @@
 "use client";
-import { useCallback, useMemo, useState } from "react";
-import { searchByName } from "../utils/searchByName";
-import searchIcon from "../../public/icons/search.svg";
 
 import Image from "next/image";
 import Link from "next/link";
+import { searchByName } from "../utils/searchByName";
 import { findRestaurantById } from "../utils/findRestaurantById";
-import { useDispatch } from "react-redux";
 import { addRestaurant } from "../redux/currentRestaurantSlice";
+import { useCallback, useMemo, useState } from "react";
+import { useDispatch } from "react-redux";
+import searchIcon from "../../public/icons/search.svg";
 
 const Search = ({ searchIsClicked, handleSearchClicked }) => {
   const [search, setSearch] = useState("");
@@ -29,7 +29,7 @@ const Search = ({ searchIsClicked, handleSearchClicked }) => {
   return (
     <div className=" relative">
       <label
-        class={`md:block md:w-96 ${
+        className={`md:block md:w-96 ${
           searchIsClicked ? "w-[300px] block" : "hidden"
         }`}
       >

@@ -35,7 +35,7 @@ const ProductModal = ({ product }) => {
             </div>
           </div>
           <div className="flex flex-col justify-around w-full px-2">
-            <div className="flex items-center">
+            <div className="flex items-center py-2">
               <div>{product.title}</div>
               <div className="mx-3 border rounded-md px-2 flex items-center">
                 <Image src={rateIcon} className="mb-1 ml-1" />

@@ -1,12 +1,14 @@
 "use client";
-import { useSelector } from "react-redux";
-import { filterProductByRestaurantId } from "../../utils/filterProductByRestaurantId";
+
 import Image from "next/image";
 import rateIcon from "../../../public/icons/rate.svg";
 import warningIcon from "../../../public/icons/warning.png";
 import Products from "../../components/Products";
 import Link from "next/link";
 import CartList from "../../components/CartList";
+import Popup from "reactjs-popup";
+import RestaurantDetails from "../../components/RestaurantDetails";
+import { filterProductByRestaurantId } from "../../utils/filterProductByRestaurantId";
 import { findRestaurantById } from "@/app/utils/findRestaurantById";
 
 const Page = ({ params }) => {
@@ -55,19 +57,35 @@ const Page = ({ params }) => {
                 </div>
               </div>
               <div className="flex">
-                <button
-                  dir="rtl"
-                  className="rounded-3xl bg-white text-green-400 w-full p-2 border border-gray-100 shadow-md mt-7 flex justify-center items-center hover:text-green-600 text-sm"
+                <Popup
+                  className="flex justify-between"
+                  trigger={
+                    <button
+                      dir="rtl"
+                      className="rounded-3xl bg-white text-green-400 w-full p-2 border border-gray-100 shadow-md mt-7 flex justify-center items-center hover:text-green-600 text-sm"
+                    >
+                      <div className="flex w-4 items-center ml-2">
+                        <Image
+                          alt="warningIcon"
+                          src={warningIcon}
+                          className="w-full"
+                        />
+                      </div>
+                      اطلاعات و نظرات
+                    </button>
+                  }
+                  modal
                 >
-                  <div className="flex w-4 items-center ml-2">
-                    <Image
-                      alt="warningIcon"
-                      src={warningIcon}
-                      className="w-full"
+                  {(close) => (
+                    <RestaurantDetails
+                      close={close}
+                      name={name}
+                      restaurant_id={id}
+                      logo={logo}
+                      category={category}
                     />
-                  </div>
-                  اطلاعات و نظرات
-                </button>
+                  )}
+                </Popup>
               </div>
               <div className="flex flex-col mt-5 md:text-left">
                 {category.map((item) => (
