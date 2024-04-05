@@ -73,23 +73,14 @@ const commentSlice = createSlice({
   reducers: {
     addComment: (state, action) => {
       const { payload } = action;
-      const {
-        items,
-        restaurant_id,
-        date,
-        rate,
-        userId,
-        description,
-        history_id,
-      } = payload;
+      const { items, restaurant_id, date, rate, userId, description } = payload;
       const index = state.findIndex((user) => user.userId === userId);
-      state[index].commentsCart.push({
+      state[index].comments.push({
         id: Math.floor(Math.random() * 1000),
         items,
         restaurant_id,
         date,
         rate,
-        history_id,
         description,
       });
     },

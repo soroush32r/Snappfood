@@ -9,6 +9,7 @@ import Link from "next/link";
 import Popup from "reactjs-popup";
 import ReorderModal from "./ReorderModal";
 import OrderHistoryModal from "./OrderHistoryModal";
+import AddComment from "./AddComment";
 
 export default function SideBar() {
   const [data] = useSelector((store) => store.history);
@@ -45,7 +46,7 @@ export default function SideBar() {
           <div className="border rounded-xl mt-4">
             {sortedOrder.map(({ items, totalPrice, restaurant, date }, index) =>
               index <= 2
-                ? restaurant.map(({ name, logo }) => (
+                ? restaurant.map(({ id, name, logo }) => (
                     <div className="flex p-4 border-b flex-col">
                       <div className="flex">
                         <div className="w-16 p-1 rounded-md bg-white border">
@@ -64,9 +65,27 @@ export default function SideBar() {
                         <div className="text-xs text-gray-600">
                           نظرتان را درباره این سفارش به اشتراک بگذارید
                         </div>
-                        <button className="text-green-700 font-bold mt-2 md:mt-0">
-                          ثبت نظر
-                        </button>
+                        <Popup
+                          className="flex justify-between"
+                          trigger={
+                            <button className="text-green-700 font-bold mt-2 md:mt-0">
+                              ثبت نظر
+                            </button>
+                          }
+                          modal
+                        >
+                          {(close) => (
+                            <div className="md:mx-auto rounded-md shadow-black shadow-2xl bg-white w-[350px] md:w-[500px] p-8">
+                              <AddComment
+                                restaurant_id={id}
+                                name={name}
+                                logo={logo}
+                                items={items}
+                                close={close}
+                              />
+                            </div>
+                          )}
+                        </Popup>
                       </div>
                       <div className="flex mt-5 md:flex-row flex-col justify-between">
                         <Popup
@@ -81,13 +100,14 @@ export default function SideBar() {
                           }
                           modal
                         >
-                          <div className="md:mx-auto rounded-md shadow-black shadow-2xl bg-white md:w-[500px] p-8">
+                          {(close) => (
                             <OrderHistoryModal
                               items={items}
                               restaurantName={name}
                               totalPrice={totalPrice}
+                              close={close}
                             />
-                          </div>
+                          )}
                         </Popup>
 
                         <Popup
