@@ -56,7 +56,7 @@ const Search = ({ searchIsClicked, handleSearchClicked }) => {
             <Link
               key={index}
               onClick={() => handleProductClicked(product.restaurant_id)}
-              href={`/${product.title}/${product.restaurant_id}/`}
+              href={`/restaurant/${product.restaurant_id}/`}
             >
               <div
                 className={`flex py-4 items-center ${

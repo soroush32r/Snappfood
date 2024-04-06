@@ -84,7 +84,10 @@ const Header = () => {
           </div>
         </div>
 
-        <Search />
+        <Search
+          handleSearchClicked={handleSearchClicked}
+          searchIsClicked={searchIsClicked}
+        />
         <div className="flex md:justify-end justify-between items-center w-2/3 md:w-1/3">
           <Popup
             contentStyle={{
@@ -93,7 +96,6 @@ const Header = () => {
               height: "72px",
             }}
             onOpen={() => handleSearchClicked(true)}
-            onClose={() => handleSearchClicked(false)}
             trigger={
               <button className="md:hidden">
                 <Image
@@ -104,7 +106,6 @@ const Header = () => {
               </button>
             }
             modal
-            closeOnDocumentClick
           >
             <div
               className={`${
