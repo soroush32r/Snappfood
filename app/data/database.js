@@ -66,18 +66,18 @@ export const CATEGORIES = [
 ];
 
 export const ALL_CATEGORY_ADDRESS = [
-  { img: irani, name: IRANI },
-  { img: fastfood, name: FASTFOOD },
-  { img: kebab, name: KEBAB },
-  { img: pizza, name: PIZZA },
-  { img: burger, name: BURGER },
-  { img: sandwich, name: SANDWICH },
-  { img: sokhari, name: SOKHARI },
-  { img: pasta, name: PASTA },
-  { img: salad, name: SALAD },
-  { img: seafood, name: SEAFOOD },
-  { img: international, name: INTERNATIONAL },
-  { img: gilani, name: GILANI },
+  { url: "irani", img: irani, name: IRANI },
+  { url: "fastfood", img: fastfood, name: FASTFOOD },
+  { url: "kebab", img: kebab, name: KEBAB },
+  { url: "pizza", img: pizza, name: PIZZA },
+  { url: "burger", img: burger, name: BURGER },
+  { url: "sandwich", img: sandwich, name: SANDWICH },
+  { url: "sokhari", img: sokhari, name: SOKHARI },
+  { url: "pasta", img: pasta, name: PASTA },
+  { url: "salad", img: salad, name: SALAD },
+  { url: "seafood", img: seafood, name: SEAFOOD },
+  { url: "international", img: international, name: INTERNATIONAL },
+  { url: "gilani", img: gilani, name: GILANI },
 ];
 
 export const PRODUCTS = [

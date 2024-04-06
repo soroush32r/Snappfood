@@ -41,7 +41,7 @@ const Search = ({ searchIsClicked, handleSearchClicked }) => {
           />
         </span>
         <input
-          class="placeholder:italic placeholder:text-slate-400 block p-4 bg-gray-200 w-full rounded-md pr-9 pl-3 shadow-sm focus:outline-none focus:border-black focus:ring-black focus:bg-white focus:ring-1 sm:text-sm"
+          className="placeholder:italic placeholder:text-slate-400 block p-4 bg-gray-200 w-full rounded-md pr-9 pl-3 shadow-sm focus:outline-none focus:border-black focus:ring-black focus:bg-white focus:ring-1 sm:text-sm"
           placeholder="جست‌وجو در اسنپ‌فود"
           type="text"
           name="search"

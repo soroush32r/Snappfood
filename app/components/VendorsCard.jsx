@@ -1,10 +1,10 @@
 "use client";
 import { useDispatch } from "react-redux";
 import { addRestaurant } from "../redux/currentRestaurantSlice";
+import { useCallback } from "react";
 import rateIcon from "../../public/icons/rate.svg";
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback } from "react";
 
 const VendorsCard = ({ id, name, background, rate, category, logo }) => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const VendorsCard = ({ id, name, background, rate, category, logo }) => {
   }, []);
   return (
     <Link onClick={handleCardID} href={`/restaurant/${id}`}>
-      <div className="border border-gray-100 rounded-md shadow-md w-full flex flex-col relative hover:shadow-lg">
+      <div className="border bg-white border-gray-100 rounded-md shadow-md w-full flex flex-col relative hover:shadow-lg">
         <div className="flex ">
           <div className="h-48 w-full">
             <Image
@@ -32,7 +32,7 @@ const VendorsCard = ({ id, name, background, rate, category, logo }) => {
             </div>
           </div>
         </div>
-        <div className="mt-2 text-center p-4 pb-10">
+        <div className="mt-2 text-center p-4 pb-10 ">
           <p className="font-semibold text-lg mb-1">{name}</p>
           <div className="flex text-sm items-center justify-center">
             <Image src={rateIcon} className="w-3 h-6 ml-1" alt="rate" />

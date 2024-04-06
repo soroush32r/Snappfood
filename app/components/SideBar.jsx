@@ -100,14 +100,14 @@ export default function SideBar() {
                           }
                           modal
                         >
-                          {(close) => (
+                          <div className="md:mx-auto rounded-md shadow-black shadow-2xl bg-white md:w-[500px] p-8">
                             <OrderHistoryModal
                               items={items}
                               restaurantName={name}
                               totalPrice={totalPrice}
                               close={close}
                             />
-                          )}
+                          </div>
                         </Popup>
 
                         <Popup
