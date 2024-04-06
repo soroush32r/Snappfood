@@ -84,10 +84,7 @@ const Header = () => {
           </div>
         </div>
 
-        <Search
-          handleSearchClicked={handleSearchClicked}
-          searchIsClicked={searchIsClicked}
-        />
+        <Search handleSearchClicked={handleSearchClicked} />
         <div className="flex md:justify-end justify-between items-center w-2/3 md:w-1/3">
           <Popup
             contentStyle={{
