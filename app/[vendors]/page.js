@@ -1,5 +1,4 @@
 import VendorsList from "@/app/components/VendorsList";
-import { ALL_CATEGORY_ADDRESS } from "../data/database";
 const linkDic = {
   restaurant: "رستوران",
   cafe: "کافه",
@@ -27,7 +26,9 @@ const category = [
 ];
 
 const Page = ({ params }) => {
-  if (params.vendors !== "restaurant" && !!category.includes(params)) {
+  const vendor = params.vendors.split("%24")[0];
+  const url = params.vendors.split("%24")[1];
+  if (vendor !== "restaurant") {
     return (
       <div className="flex justify-center my-60 items-center">
         در حال حاضر فروشنده‌ای در قسمت {linkDic[params.vendors]} وجود ندارد
@@ -35,7 +36,7 @@ const Page = ({ params }) => {
     );
   }
 
-  return <VendorsList url={params.vendors} />;
+  return <VendorsList url={url} />;
 };
 
 export default Page;

@@ -21,7 +21,7 @@ export default function Home() {
         <div className="pb-8">دسته‌بندی‌ها</div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
           {ALL_CATEGORY_ADDRESS.map(({ url, img, name }) => (
-            <Link href={`${url}`} className="w-full">
+            <Link href={`/restaurant$${url}`} className="w-full">
               <div className="relative">
                 <Image
                   src={img}

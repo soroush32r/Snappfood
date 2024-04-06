@@ -7,7 +7,7 @@ import { findRestaurantByCategory } from "../utils/findRestaurantByCategory";
 
 const VendorsList = ({ url }) => {
   const [resturants, setRestaurants] = useState(
-    url === "restaurant"
+    url === undefined
       ? RESTAURANTS
       : findRestaurantByCategory({ url: url, category: "" })
   );

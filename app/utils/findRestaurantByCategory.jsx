@@ -10,7 +10,6 @@ export const findRestaurantByCategory = ({ url, category }) => {
       return pre;
     }, "");
   }
-  console.log(category);
   return RESTAURANTS.filter((restaurant) =>
     restaurant.category.includes(category)
   );
