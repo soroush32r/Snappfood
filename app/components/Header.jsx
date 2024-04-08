@@ -123,7 +123,7 @@ const Header = () => {
           <SideBar />
         </div>
       </div>
-      <div className="flex justify-between pt-4 px-4 scrollbar overflow-x-scroll md:overflow-hidden">
+      <div className="flex justify-between pt-4 px-4 md:p-4 scrollbar overflow-x-scroll md:overflow-hidden">
         {imageArray.map(({ name, path, url }) => (
           <Link href={url} key={name}>
             <div key={name} className="flex flex-col items-center p-4">
