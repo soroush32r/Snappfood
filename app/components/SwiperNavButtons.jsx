@@ -17,7 +17,6 @@ const SwiperNavButtons = () => {
   };
   const handleNextSlideClick = () => {
     swiper.slideNext();
-    console.log(swiper.isEnd);
     if (swiper.isEnd) {
       setIsBeginning(false);
       setIsEnd(true);

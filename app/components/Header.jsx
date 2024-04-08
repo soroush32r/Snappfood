@@ -65,7 +65,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex flex-col shadow-md w-full">
+    <div className="flex flex-col md:shadow-md w-full">
       <div className="flex justify-between items-center p-4">
         <div className="flex items-center w-2/3 md:w-1/3">
           <Link href={"/"} className="hidden md:block ml-10">
@@ -123,7 +123,7 @@ const Header = () => {
           <SideBar />
         </div>
       </div>
-      <div className="flex justify-between p-4 overflow-y-scroll md:overflow-hidden">
+      <div className="flex justify-between p-4 scrollbar overflow-y-auto md:overflow-hidden">
         {imageArray.map(({ name, path, url }) => (
           <Link href={url} key={name}>
             <div key={name} className="flex flex-col items-center p-4">
