@@ -39,7 +39,7 @@ export default function Home() {
       </div>
       <div>
         <div className="font-bold text-2xl mb-6">ارسال رایگان</div>
-        <div className="relative w-full">
+        <div className="relative w-full z-0">
           <Swiper
             slidesPerView={1}
             spaceBetween={10}
